@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import StaticContainer from './StaticContainer';
+import JoinedWaitlist from './JoinedWaitlist';
 
-class App extends Component {
-  state = {users: []}
-
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
-
+class Root extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
-      </div>
-    );
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={StaticContainer} />
+          <Route path="/waitlist" component={JoinedWaitlist} />
+        </div>
+      </BrowserRouter>
+    )
   }
 }
 
-export default App;
+export default Root;

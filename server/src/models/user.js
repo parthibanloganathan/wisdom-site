@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 const shortid = require('shortid');
+import crypto from 'crypto';
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -11,12 +12,12 @@ const userSchema = new mongoose.Schema({
     default: false
   },
   points: {
-    type: Int16Array,
+    type: Number,
     default: 1
   },
   signupDate: {
     type: Date,
-    default: new Data()
+    default: new Date()
   },
   referralCode: {
     type: String,
