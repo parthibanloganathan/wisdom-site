@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
     default: shortid.generate,
     unique: true
   },
+  referralSource: {
+    type: String
+  },
   token: {
     type: String,
     default: crypto.randomBytes(16).toString('hex')

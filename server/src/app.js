@@ -3,6 +3,7 @@
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
 import logger from 'morgan';
 import indexRouter from './routes/index';
 import mongoose from 'mongoose';
@@ -15,7 +16,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
+
 app.use('/', indexRouter);
 
 mongoose.connect(process.env.DATABASE_URL).then(async () => {
