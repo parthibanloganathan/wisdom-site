@@ -26,7 +26,6 @@ router.get('/joinwaitlist', function (req, res, next) {
     // Make sure user doesn't already exist
     if (user) return res.status(400).send({ msg: 'The email address you have entered is already associated with another account.' });
 
-
     var newUser = new User({
       email: req.query.email
     });
@@ -35,7 +34,7 @@ router.get('/joinwaitlist', function (req, res, next) {
       if (err) return console.error(err);
 
       res.status(200).send({
-        'referralCode': user.referralCode
+        'referralCode': newUser.referralCode
       });
 
       // // Send verification email
