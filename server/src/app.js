@@ -20,7 +20,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/', indexRouter);
+app.use('/api/', indexRouter);
+
+app.use("/landing", (req, res) => {
+  console.log('hit server');
+  res.status(200).sendFile(path.resolve(__dirname, "../public", "home.html"));
+});
 
 mongoose.connect(process.env.DATABASE_URL).then(async () => {
   app.listen(process.env.PORT, () =>

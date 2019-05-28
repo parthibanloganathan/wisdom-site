@@ -21,7 +21,7 @@ class JoinedWaitlist extends Component {
         this.setState({ email: values.email });
         this.setState({ referralSource: values.ref });
 
-        axios.post('/joinwaitlist', {
+        axios.post('/api/joinwaitlist', {
             'email': values.email,
             'referralSource': values.ref
         }).then(response => {

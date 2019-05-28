@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
   referralSource: {
     type: String
   },
-  token: {
+  verificationToken: {
     type: String,
     default: crypto.randomBytes(16).toString('hex')
   }

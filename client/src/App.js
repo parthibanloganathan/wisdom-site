@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import StaticContainer from './StaticContainer';
+import LandingPage from './LandingPage';
 import JoinedWaitlist from './JoinedWaitlist';
 
 class Root extends Component {
@@ -8,7 +8,7 @@ class Root extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Route exact path="/" component={StaticContainer} />
+          <Route exact path="/" component={LandingPage} />
           <Route path="/waitlist" component={JoinedWaitlist} />
         </div>
       </BrowserRouter>
