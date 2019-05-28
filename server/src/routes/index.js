@@ -1,13 +1,14 @@
 import express from 'express';
-import path from 'path'
 import User from '../models/user.js';
 import { sendVerificationEmail } from '../controllers/mail.js';
 var router = express.Router();
 
-// router.get('/', function(req, res) {
-//   // res.sendFile('/home.html');
-//   res.sendFile('../../public/home.html', {root: __dirname});
-// });
+const BIAS = 231;
+
+function getPosition(user) {
+  var sortedUsers = User.find().sort({points: -1, date: -1});
+  return sortedUsers.indexOf({ email: user.email });
+}
 
 router.post('/joinwaitlist', function (req, res) {
   // req.assert('email', 'Email is not valid').isEmail();
@@ -23,7 +24,8 @@ router.post('/joinwaitlist', function (req, res) {
     // Make sure user doesn't already exist
     if (user) {
       return res.status(200).send({
-        'referralCode': user.referralCode
+        'referralCode': user.referralCode,
+        'position': BIAS + getPosition(user)
       });
     }
 
@@ -36,7 +38,8 @@ router.post('/joinwaitlist', function (req, res) {
       if (err) return console.error(err);
 
       res.status(200).send({
-        'referralCode': newUser.referralCode
+        'referralCode': newUser.referralCode,
+        'position': BIAS + getPosition(newUser)
       });
 
       // Send verification email

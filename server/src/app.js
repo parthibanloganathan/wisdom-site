@@ -22,8 +22,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/', indexRouter);
 
-app.use("/landing", (req, res) => {
-  console.log('hit server');
+app.use("/", (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, "../public", "home.html"));
 });
 

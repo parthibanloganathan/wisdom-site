@@ -5,7 +5,7 @@ import crypto from 'crypto';
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    unique: true,
+    unique: true
   },
   verified: {
     type: Boolean,
@@ -13,11 +13,13 @@ const userSchema = new mongoose.Schema({
   },
   points: {
     type: Number,
-    default: 1
+    default: 1,
+    index: true
   },
   signupDate: {
     type: Date,
-    default: new Date()
+    default: new Date(),
+    index: true
   },
   referralCode: {
     type: String,
@@ -29,7 +31,8 @@ const userSchema = new mongoose.Schema({
   },
   verificationToken: {
     type: String,
-    default: crypto.randomBytes(16).toString('hex')
+    default: crypto.randomBytes(16).toString('hex'),
+    unique: true
   }
 });
 
