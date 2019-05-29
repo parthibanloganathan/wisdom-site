@@ -16,7 +16,11 @@ export function sendVerificationEmail(email, host, token) {
         from: 'support@getwisdomapp.com',
         to: email,
         subject: 'Verify your email for Wisdom',
-        text: 'Hello,\n\n' + 'Please verify your email by clicking the link: \nhttp:\/\/' + host + '\/api\/confirmation\/' + token + '\n'
+        text: 'Hello,\n\n' +
+        'Please verify your email by clicking this link: \n' + 
+        'http:\/\/' + host + '\/verify\/' + token + '\n\n' +
+        'Best,\n' + 
+        'Your friends at Wisdom' 
     }, (err, info) => {
         if (err) {
             console.log(`Error: ${err}`);

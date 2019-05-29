@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import JoinedWaitlist from './JoinedWaitlist';
+import EmailVerified from './EmailVerified';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
@@ -20,7 +21,8 @@ class Root extends Component {
       <MuiThemeProvider theme={theme}>
         <BrowserRouter>
           <div>
-            <Route path="/waitlist" component={JoinedWaitlist} />
+            <Route path="/waitlist" exact component={JoinedWaitlist} />
+            <Route path="/verify" component={EmailVerified} />
           </div>
         </BrowserRouter>
       </MuiThemeProvider>

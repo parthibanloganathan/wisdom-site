@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Container, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Redirect } from 'react-router-dom';
+import Owl from './assets/owl.svg';
 
 const styles = {
     container: {
@@ -11,12 +12,16 @@ const styles = {
         textAlign: 'center',
         marginTop: 100
     },
+    owl: {
+        marginBottom: 20,
+        width: '8%'
+    },
     title: {
         marginBottom: 50
     }
 }
 
-class FourOFour extends Component {
+class Page404 extends Component {
     state = {
         goHome: false
     }
@@ -31,6 +36,7 @@ class FourOFour extends Component {
         return (
             <Container maxWidth="lg" className={classes.container}>
                 <div className={classes.main}>
+                    <img src={Owl} alt="Owl" className={classes.owl} />
                     <Typography variant="h2" gutterBottom className={classes.title}>Hmmm... looks like you're lost</Typography>
                     <Button onClick={() => this.setState({ goHome: true })}>Go back home</Button>
                 </div>
@@ -39,4 +45,4 @@ class FourOFour extends Component {
     }
 }
 
-export default withStyles(styles)(FourOFour);
+export default withStyles(styles)(Page404);

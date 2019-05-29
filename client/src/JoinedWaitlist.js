@@ -6,7 +6,8 @@ import queryString from 'query-string';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { withStyles } from '@material-ui/styles';
 import Notifications, { notify } from 'react-notify-toast';
-import FourOFour from './FourOFour.js';
+import Page404 from './Page404';
+import NeonOwl from './assets/neon.svg';
 
 const styles = {
     container: {
@@ -24,11 +25,19 @@ const styles = {
     },
     linkRow: {
         margin: 'auto',
+        width: '50%',
         marginTop: 30
     },
     main: {
-        margin: 'auto',
-        width: '50%'
+        textAlign: 'center'
+    },
+    owl: {
+        marginTop: 30,
+        width: '5%'
+    },
+    position: {
+        color: '#FFFFFF',
+        fontSize: 30
     },
     text: {
         color: '#C5C6C7'
@@ -49,20 +58,24 @@ const styles = {
     notchedOutline: {
         borderWidth: '1px',
         borderColor: '#66FCF1 !important'
-    },
-
+    }
 }
 
 class JoinedWaitlist extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            referralLink: '',
-            referralSource: '',
-            position: '',
-            ready: false
+            email: null,
+            referralLink: null,
+            referralSource: null,
+            position: null,
+            error: false
         }
+    }
+
+    isValidEmail = email => {
+        const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regexp.test(email);
     }
 
     componentDidMount() {
@@ -70,7 +83,9 @@ class JoinedWaitlist extends Component {
         this.setState({ email: values.email });
         this.setState({ referralSource: values.ref });
 
-        if (values.email === null) {
+        if (!this.isValidEmail(values.email)) {
+            console.log('failed');
+            this.setState({ error: true });
             return;
         }
 
@@ -80,8 +95,9 @@ class JoinedWaitlist extends Component {
         }).then(response => {
             var url = window.location.protocol + '//' + window.location.host;
             var constructedLink = url + '?ref=' + response.data.referralCode;
-            this.setState({ referralLink: constructedLink, position: response.data.position, ready: true });
+            this.setState({ referralLink: constructedLink, position: response.data.position });
         }).catch(error => {
+            this.setState({ error: true });
             console.log(error);
         });
     }
@@ -93,8 +109,8 @@ class JoinedWaitlist extends Component {
     render() {
         const { classes } = this.props;
 
-        if (!this.state.ready) {
-            return <FourOFour />
+        if (this.state.error) {
+            return <Page404 />
         }
 
         return (
@@ -102,10 +118,10 @@ class JoinedWaitlist extends Component {
                 <div className={classes.main}>
                     <Notifications />
                     <Typography variant="h2" gutterBottom className={classes.title}>You're on the waitlist!</Typography>
-                    <Typography className={classes.text}>There are {this.state.position - 1} people ahead of you in line</Typography>
+                    <Typography className={classes.text}><span className={classes.position}>{this.state.position - 1}</span> people are ahead of you in line</Typography>
                     <Typography className={classes.text}>Share the Wisdom app with friends to move up the waitlist! Here's your referral link:</Typography>
-                    <Grid container spacing={3}>
-                        <Grid item xs={9}>
+                    <Grid container spacing={3} className={classes.linkRow}>
+                        <Grid item xs={10}>
                             <TextField
                                 ref="ReferralLinkTextField"
                                 label="Referral Link"
@@ -130,7 +146,7 @@ class JoinedWaitlist extends Component {
                                 margin="normal"
                             />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={1}>
                             <CopyToClipboard onCopy={this.onCopy} text={this.state.referralLink}>
                                 <Tooltip title="Copy link">
                                     <IconButton className={classes.copyButton}>
@@ -140,6 +156,7 @@ class JoinedWaitlist extends Component {
                             </CopyToClipboard>
                         </Grid>
                     </Grid>
+                    <img src={NeonOwl} alt="Owl" className={classes.owl} />
                 </div>
             </Container>
         );
