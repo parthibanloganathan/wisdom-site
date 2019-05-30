@@ -6,7 +6,7 @@
 import app from '../app';
 import debugLib from 'debug';
 import http from 'http';
-const debug = debugLib('wisdom-site-server:server');
+const debug = debugLib('wisdom-site:server');
 
 /**
  * Get port from environment and store in Express.
