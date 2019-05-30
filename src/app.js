@@ -20,7 +20,8 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/', indexRouter);
 
