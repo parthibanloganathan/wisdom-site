@@ -1,6 +1,7 @@
 // For ES6 support, see https://medium.freecodecamp.org/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab
 // For React frontend, see https://daveceddia.com/create-react-app-express-backend/
 import express from 'express';
+import '@babel/polyfill';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
