@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ~/dev/wisdom-site/client
-cp -r Procfile .env package.json public src ../../wisdom-site-client
+cp -r Procfile package.json public src ../../wisdom-site-client
 cd ~/dev/wisdom-site/server
 cp -r Procfile .babelrc .env nodemon.json package.json package-lock.json public src ../../wisdom-site-server
 

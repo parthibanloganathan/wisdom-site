@@ -66,7 +66,7 @@ class JoinedWaitlist extends Component {
         super(props);
         this.state = {
             email: null,
-            referralLink: null,
+            referralLink: '',
             referralSource: null,
             position: null,
             error: false
@@ -84,7 +84,6 @@ class JoinedWaitlist extends Component {
         this.setState({ referralSource: values.ref });
 
         if (!this.isValidEmail(values.email)) {
-            console.log('failed');
             this.setState({ error: true });
             return;
         }

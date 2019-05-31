@@ -9,8 +9,10 @@ var landingPageFilter = function (pathname, req) {
     return pathname.match('^\/$') && req.method === 'GET';
 };
 
+console.log(process.env.NODE_ENV);
+
 var serverUrl = 'https://wisdom-site-server.herokuapp.com/';
-if (process.env.DEV === true) {
+if (process.env.NODE_ENV === 'development') {
     serverUrl = 'http://localhost:3001/';
 }
 

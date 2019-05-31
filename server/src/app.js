@@ -9,11 +9,18 @@ import logger from 'morgan';
 import indexRouter from './routes/index';
 import mongoose from 'mongoose';
 import expressValidator from 'express-validator';
+import cors from 'cors';
+
+// const corsOptions = {
+//   origin: 'https://wisdom-site-client.herokuapp.com/',
+//   optionsSuccessStatus: 200
+// }
 
 require('dotenv').config();
 
 const app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -21,7 +28,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
-// app.use(express.static(path.join(__dirname, '../client/build')));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/', indexRouter);
