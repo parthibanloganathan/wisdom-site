@@ -33,9 +33,9 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/', indexRouter);
 
-app.use("/", (req, res) => {
-  res.status(200).sendFile(path.resolve(__dirname, "../public", "home.html"));
-});
+// app.use("/", (req, res) => {
+//   res.status(200).sendFile(path.resolve(__dirname, "../public", "home.html"));
+// });
 
 mongoose.connect(process.env.DATABASE_URL);
 // .then(async () => {
