@@ -37,10 +37,11 @@ app.use("/", (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, "../public", "home.html"));
 });
 
-mongoose.connect(process.env.DATABASE_URL).then(async () => {
-  app.listen(process.env.PORT, () =>
-    console.log(`Listening on port ${process.env.PORT}!`),
-  );
-});
+mongoose.connect(process.env.DATABASE_URL);
+// .then(async () => {
+//   app.listen(process.env.PORT, () =>
+//     console.log(`Listening on port ${process.env.PORT}!`),
+//   );
+// });
 
 export default app;
