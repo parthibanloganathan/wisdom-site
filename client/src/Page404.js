@@ -3,6 +3,7 @@ import { Button, Container, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Redirect } from 'react-router-dom';
 import Owl from './assets/owl.svg';
+import axios from 'axios';
 
 const styles = {
     container: {
@@ -26,6 +27,19 @@ class Page404 extends Component {
         goHome: false
     }
 
+    test = () => {
+        axios.post('/api/joinwaitlist', {
+            'email': 'parthi147@gmaile.com',
+            'referralSource': '23fg5m'
+        }).then(response => {
+            var url = window.location.protocol + '//' + window.location.host;
+            console.log(url);
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -39,6 +53,7 @@ class Page404 extends Component {
                     <img src={Owl} alt="Owl" className={classes.owl} />
                     <Typography variant="h2" gutterBottom className={classes.title}>Hmmm... looks like you're lost</Typography>
                     <Button onClick={() => this.setState({ goHome: true })}>Go back home</Button>
+                    <Button onClick={this.test}>Test</Button>
                 </div>
             </Container>
         );

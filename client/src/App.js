@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import JoinedWaitlist from './JoinedWaitlist';
 import EmailVerified from './EmailVerified';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import Page404 from './Page404';
 
 const theme = createMuiTheme({
   palette: {
@@ -23,6 +24,7 @@ class Root extends Component {
           <div>
             <Route path="/waitlist" exact component={JoinedWaitlist} />
             <Route path="/verify" component={EmailVerified} />
+            <Route path="/" component={Page404} />
           </div>
         </BrowserRouter>
       </MuiThemeProvider>
