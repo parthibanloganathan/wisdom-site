@@ -3,7 +3,6 @@ import { Button, Container, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Redirect } from 'react-router-dom';
 import Owl from './assets/owl.svg';
-import axios from 'axios';
 
 const styles = {
     container: {
