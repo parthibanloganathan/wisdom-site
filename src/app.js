@@ -15,8 +15,6 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
@@ -32,7 +30,7 @@ app.use("/", (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, "../client/build", "home.html"));
 });
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'../client/build/index.html'));
