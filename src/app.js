@@ -26,14 +26,14 @@ app.use('/api/', indexRouter);
 
 app.get("/", (req, res) => {
   console.log('hit /');
-  res.status(200).sendFile(path.resolve(__dirname, "/../client/build/home.html"));
+  res.status(200).sendFile(path.join(__dirname, "/../client/build/home.html"));
 });
 
 app.use(express.static(path.join(__dirname, '/../client/build')));
 
 app.get('*', (req, res) => {
   console.log('hit *');
-  res.sendFile(path.join(__dirname+'/../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/../client/build/index.html'));
 });
 
 mongoose.connect(process.env.DATABASE_URL);
