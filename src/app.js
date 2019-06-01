@@ -26,14 +26,14 @@ app.use(expressValidator());
 
 app.use('/api/', indexRouter);
 
-app.use("/", (req, res) => {
-  res.status(200).sendFile(path.resolve(__dirname, "../client/build", "home.html"));
+app.get('/', (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, '/../client/build/index.html'));
 });
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/../client/build/index.html'));
 });
 
 mongoose.connect(process.env.DATABASE_URL);
