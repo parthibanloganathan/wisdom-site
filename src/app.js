@@ -9,13 +9,11 @@ import logger from 'morgan';
 import indexRouter from './routes/index';
 import mongoose from 'mongoose';
 import expressValidator from 'express-validator';
-import cors from 'cors';
 
 require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,14 +24,16 @@ app.use(expressValidator());
 
 app.use('/api/', indexRouter);
 
-app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '/../client/build/index.html'));
+app.get("/", (req, res) => {
+  console.log('hit /');
+  res.status(200).sendFile(path.resolve(__dirname, "/../client/build/home.html"));
 });
 
-app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(express.static(path.join(__dirname, '/../client/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/build/index.html'));
+  console.log('hit *');
+  res.sendFile(path.join(__dirname+'/../client/build/index.html'));
 });
 
 mongoose.connect(process.env.DATABASE_URL);
