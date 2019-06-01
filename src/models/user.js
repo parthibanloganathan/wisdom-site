@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 const shortid = require('shortid');
-import crypto from 'crypto';
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -27,11 +26,11 @@ const userSchema = new mongoose.Schema({
     unique: true
   },
   referralSource: {
-    type: String
+    type: String,
+    default: null
   },
   verificationToken: {
     type: String,
-    default: crypto.randomBytes(16).toString('hex'),
     unique: true
   }
 });

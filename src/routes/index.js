@@ -1,6 +1,8 @@
 import express from 'express';
 import User from '../models/user.js';
 import { sendVerificationEmail } from '../controllers/mail.js';
+import { body, param, validationResult } from 'express-validator/check';
+import crypto from 'crypto';
 var router = express.Router();
 
 const BIAS = 231;
@@ -13,62 +15,72 @@ async function getPosition(targetUser) {
   return BIAS + index;
 }
 
-router.post('/joinwaitlist', function (req, res) {
-  req.assert('email', 'Email is not valid').isEmail();
-  req.assert('email', 'Email cannot be blank').notEmpty();
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
-
+router.post('/joinwaitlist', [
+  body('email')
+    .not().isEmpty()
+    .isEmail()
+    .normalizeEmail()
+], function (req, res) {
   // Check for validation errors    
-  var errors = req.validationErrors();
-  if (errors) { return res.status(400).send(errors); }
+  var errors = validationResult(req);
+  if (!errors.isEmpty()) { return res.status(400).send(errors); }
 
-  // Make sure this account doesn't already exist
   User.findOne({ email: req.body.email }, function (err, user) {
+    console.log('checking if user exists');
     // Make sure user doesn't already exist
     if (user) {
-      // Update referral to latest person
-      user.referralSource = req.body.referralSource; 
-      user.save(function (err) {
-        if (err) { return res.status(500).send({ msg: err.message }); }
-      });
+      // Update referral to latest person if not null
+      console.log(user.referralSource);
+      console.log(req.body.referralSource);
+      if (req.body.referralSource !== null && !user.referralSource) {
+        user.referralSource = req.body.referralSource;
+        user.save();
+      }
 
       getPosition(user).then(position => {
+        console.log('returning existing user');
         return res.status(200).send({
           'referralCode': user.referralCode,
           'position': position
         });
       });
-    }
+    } else {
 
-    // Create new user
-    var newUser = new User({
-      email: req.body.email,
-      referralSource: req.body.referralSource
-    });
+      console.log('creating new user');
 
-    newUser.save(function (err, newUser) {
-      if (err) return console.error(err);
-
-      getPosition(newUser).then(position => {
-        return res.status(200).send({
-          'referralCode': newUser.referralCode,
-          'position': position
-        });
+      // Create new user
+      var newUser = new User({
+        email: req.body.email,
+        referralSource: req.body.referralSource,
+        verificationToken: crypto.randomBytes(16).toString('hex')
       });
 
-      // Send verification email
-      sendVerificationEmail(req.body.email, req.headers.host, newUser.verificationToken)
-    });
+      newUser.save(function (err, newUser) {
+        if (err) return console.error(err);
+
+        getPosition(newUser).then(position => {
+          console.log('returning new user');
+          return res.status(200).send({
+            'referralCode': newUser.referralCode,
+            'position': position
+          });
+        });
+
+        // Send verification email
+        sendVerificationEmail(req.body.email, req.headers.host, newUser.verificationToken)
+      });
+    }
   });
 });
 
 // For verification, see https://codemoto.io/coding/nodejs/email-verification-node-express-mongodb
-router.post('/verify/:token', function (req, res) {
-  req.assert('token', 'Token cannot be blank').notEmpty();
-
+router.post('/verify/:token', [
+  param('token')
+    .not().isEmpty()
+], function (req, res) {
   // Check for validation errors    
-  var errors = req.validationErrors();
-  if (errors) return res.status(400).send(errors);
+  var errors = validationResult(req);
+  if (!errors.isEmpty()) { return res.status(400).send(errors); }
 
   // Find a matching token
   User.findOne({ verificationToken: req.params.token }, function (err, user) {
@@ -87,9 +99,7 @@ router.post('/verify/:token', function (req, res) {
     User.findOne({ referralCode: user.referralSource }, function (err, referringUser) {
       if (referringUser) {
         referringUser.points++;
-        referringUser.save(function (err, referringUser) {
-          if (err) return console.error(err);
-        });
+        referringUser.save();
       }
     });
   });
