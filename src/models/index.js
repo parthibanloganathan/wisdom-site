@@ -1,13 +1,13 @@
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
-// import User from './user';
+import User from './user';
 
-// const connectDb = () => {
-//   return mongoose.connect(process.env.DATABASE_URL);
-// };
+const connectDb = () => {
+  return mongoose.connect(process.env.DATABASE_URL);
+};
 
-// const models = { User };
+const models = { User };
 
-// export { connectDb };
+export { connectDb };
 
-// export default models;
+export default models;
