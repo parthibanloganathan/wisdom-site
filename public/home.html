@@ -4,53 +4,71 @@
 <head>
   <meta charSet="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Wisdom - dev</title>
+  <title>Wisdom</title>
   <meta name="description" content="Get paid to answer questions on your area of expertise" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta property="og:image"
     content="https://cdn.landen.co/mhv9lgfzv7qn/assets/h919ippr.png?w=1200&amp;h=630&amp;fit=crop" />
-  <link rel="canonical" href="https://getwisdomapp.cmom" />
+  <link rel="canonical" href="https://getwisdomapp.com" />
   <link rel="icon" href="https://cdn.landen.co/mhv9lgfzv7qn/assets/emdbq05e.png" />
-  <link rel="stylesheet" href="https://cdn.landen.co/mhv9lgfzv7qn/assets/main.f6819c1f.css" />
+  <link rel="stylesheet" href="https://cdn.landen.co/mhv9lgfzv7qn/assets/main.5641e86b.css" />
   <style tyle="text/css">
     body {
       font-family: 'Roboto', Arial, serif;
       font-size: 14px;
       font-weight: 400;
-      --color-dark: rgba(61, 181, 193, 1.0);
-      --color-dark-secondary: rgba(123, 123, 123, 1.0);
-      --color-dark-link: rgba(0, 183, 229, 1.0);
-      --wrapper-width: 1200px;
+      --title-scale: 1;
+    }
+
+    @media only screen and (max-width: 750px) {
+      body {
+        --title-scale: 0.7;
+      }
+    }
+
+    .wr {
+      max-width: 1200px;
+      max-width: var(--wr-max);
     }
 
     .section:not(.dark),
-    .section:not(.dark) .color-text {
+    .section:not(.dark) .color-2 {
       color: #f0ecf0;
-      --color-secondary: #f0ecf0;
     }
 
     .section.dark,
-    .section.dark .color-text {
+    .section.dark .color-2 {
       color: rgba(123, 123, 123, 1.0);
-      --color-secondary: rgba(123, 123, 123, 1.0);
     }
 
-    .section:not(.dark) .color {
+    .section:not(.dark) .color-1 {
       color: #fff;
     }
 
-    .section.dark .color {
+    .section.dark .color-1 {
       color: rgba(61, 181, 193, 1.0);
     }
 
-    .section:not(.dark) {
-      --color: #fff;
-      --color-link: rgba(61, 181, 193, 1.0);
+    .section:not(.dark) .color-2 {
+      color: #f0ecf0;
     }
 
-    .section.dark {
-      --color: rgba(61, 181, 193, 1.0);
-      --color-link: rgba(0, 183, 229, 1.0);
+    .section.dark .color-2 {
+      color: rgba(123, 123, 123, 1.0);
+    }
+
+    a:not(.btn),
+    .link {
+      color: rgba(61, 181, 193, 1.0);
+      --link-hover-bg: rgba(61, 181, 193, 0.05);
+      --link-hover: rgb(37, 108, 115);
+    }
+
+    .dark a:not(.btn),
+    .dark .link {
+      color: rgba(0, 183, 229, 1.0);
+      --link-hover-bg: rgba(0, 183, 229, 0.05);
+      --link-hover: rgb(0, 101, 127);
     }
 
     .weight-text {
@@ -81,20 +99,6 @@
       font-family: 'Varela Round', Arial, serif;
     }
 
-    a:not(.btn),
-    .link {
-      color: rgba(61, 181, 193, 1.0);
-      --link-hover-bg: rgba(61, 181, 193, 0.05);
-      --link-hover: rgb(37, 108, 115);
-    }
-
-    .dark a:not(.btn),
-    .dark .link {
-      color: rgba(0, 183, 229, 1.0);
-      --link-hover-bg: rgba(0, 183, 229, 0.05);
-      --link-hover: rgb(0, 101, 127);
-    }
-
     a,
     .link {
       text-decoration: none;
@@ -104,18 +108,13 @@
     a:not(.btn):hover {
       text-decoration: underline
     }
-
-    .wr {
-      max-width: 1200px;
-      max-width: var(--wr-max);
-    }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Varela+Round|Roboto:400,500,700" rel="stylesheet" />
 </head>
 
 <body>
   <header id="header" class="section header dark" style="--wr-max:1200px">
-    <div class="wr color"><a id="headerLogo" href="/" class="header__logoImg"><img
+    <div class="wr color-1"><a id="headerLogo" href="/" class="header__logoImg"><img
           src="https://landen.imgix.net/mhv9lgfzv7qn/assets/45ri8810.png?w=400" width="200" alt="Logowisdom.png" /></a>
       <nav id="headerNav" class="header__nav">
         <div class="headerNav__links"></div>
@@ -166,43 +165,44 @@
       })();
     </script>
   </header>
-  <div id="hero" class="section section--hero section--noPadding section--center dark"
-    style="background-color:rgba(255, 255, 255, 1.0);--pdx-min-height:0px;--wr-max:1200px">
-    <div class="ft ft--center ft--isFirst ft--noPdx" style="--pdx-padding-top:1;--pdx-padding-bottom:1">
+  <div id="hero" class="section section--hero section--noPadding section--left dark"
+    style="background-color:rgba(255, 255, 255, 1.0);--pdx-min-height:700px;--wr-max:1200px">
+    <div class="ft ft--left ft--isFirst" style="--pdx-pt:0;--pdx-pb:0">
       <div class="ft__half">
         <div class="ft__wrapper" style="max-width:570px">
           <div class="ft__content">
-            <h1 class="hero__title color weight-title-h font-title">Earn in your free time</h1>
-            <h2 class="hero__subtitle weight-text">You&#39;re smart and people care about what you know. Get paid for
-              sharing your knowledge on your phone</h2>
-            <div class="hero__ctas">
-              <div class="inlineFormWrapper center">
-                <form id="if_tsrihnap21n" class="inlineForm inlineForm--b long">
-                  <div class="inlineFormContent"><input type="hidden" id="if_siteid_tsrihnap21n"
-                      value="mhv9lgfzv7qn" /><input type="hidden" id="if_listid_tsrihnap21n" /><input type="hidden"
-                      id="if_action_tsrihnap21n" value="forward" /><input type="hidden" id="if_url_tsrihnap21n"
+            <h1 class="hero__title color-1 weight-title-h font-title">You&#39;re smart! Earn in your free time today
+            </h1>
+            <h2 class="hero__subtitle weight-text">Get paid for sharing your expertise on your phone. People care about
+              what you know</h2>
+            <div class="ctas">
+              <div class="inlineFormWrapper left">
+                <form id="if_x2gh3k6r1ha" class="inlineForm inlineForm--b long">
+                  <div class="inlineFormContent"><input type="hidden" id="if_siteid_x2gh3k6r1ha"
+                      value="mhv9lgfzv7qn" /><input type="hidden" id="if_listid_x2gh3k6r1ha" /><input type="hidden"
+                      id="if_action_x2gh3k6r1ha" value="forward" /><input type="hidden" id="if_url_x2gh3k6r1ha"
                       value="http://localhost:3000/waitlist?email=[EMAIL]&amp;ref=[REF]" /><input type="hidden"
-                      id="if_legal_tsrihnap21n" /><input type="hidden" id="if_reqaccept_tsrihnap21n" /><input
-                      type="email" id="if_email_tsrihnap21n" class="inlineForm__input"
-                      placeholder="email@example.com" /><button id="if_submit_tsrihnap21n"
+                      id="if_legal_x2gh3k6r1ha" /><input type="hidden" id="if_reqaccept_x2gh3k6r1ha" /><input
+                      type="email" id="if_email_x2gh3k6r1ha" class="inlineForm__input"
+                      placeholder="email@example.com" /><button id="if_submit_x2gh3k6r1ha"
                       class="btn btn--b btn--primary btn--large"
                       style="color:#fff;background-color:rgba(61, 181, 193, 1.0)">Join Waitlist</button></div>
                 </form>
               </div>
               <script>; (function () {
-                  var elForm = document.getElementById('if_tsrihnap21n'),
-                    elSubmitBtn = document.getElementById('if_submit_tsrihnap21n'),
-                    elSiteID = document.getElementById('if_siteid_tsrihnap21n'),
-                    elListID = document.getElementById('if_listid_tsrihnap21n'),
-                    elEmail = document.getElementById('if_email_tsrihnap21n'),
-                    elAction = document.getElementById('if_action_tsrihnap21n'),
-                    elURL = document.getElementById('if_url_tsrihnap21n'),
-                    elName = document.getElementById('if_name_tsrihnap21n'),
-                    elReqAccept = document.getElementById('if_reqaccept_tsrihnap21n'),
-                    elAccept = document.getElementById('if_accept_tsrihnap21n'),
-                    elAcceptLabel = document.getElementById('if_acceptlbl_tsrihnap21n'),
-                    elLegal = document.getElementById('if_legal_tsrihnap21n'),
-                    elLegalUI = document.getElementById('if_legalui_tsrihnap21n')
+                  var elForm = document.getElementById('if_x2gh3k6r1ha'),
+                    elSubmitBtn = document.getElementById('if_submit_x2gh3k6r1ha'),
+                    elSiteID = document.getElementById('if_siteid_x2gh3k6r1ha'),
+                    elListID = document.getElementById('if_listid_x2gh3k6r1ha'),
+                    elEmail = document.getElementById('if_email_x2gh3k6r1ha'),
+                    elAction = document.getElementById('if_action_x2gh3k6r1ha'),
+                    elURL = document.getElementById('if_url_x2gh3k6r1ha'),
+                    elName = document.getElementById('if_name_x2gh3k6r1ha'),
+                    elReqAccept = document.getElementById('if_reqaccept_x2gh3k6r1ha'),
+                    elAccept = document.getElementById('if_accept_x2gh3k6r1ha'),
+                    elAcceptLabel = document.getElementById('if_acceptlbl_x2gh3k6r1ha'),
+                    elLegal = document.getElementById('if_legal_x2gh3k6r1ha'),
+                    elLegalUI = document.getElementById('if_legalui_x2gh3k6r1ha')
 
                   function bindInlineForm() {
                     elForm.addEventListener('submit', handleInlineSubmit)
@@ -253,6 +253,7 @@
                     // Added
                     url = url.replace('[REF]', data.ref)
                     // End
+
                     window.location.href = url
                   }
 
@@ -351,43 +352,305 @@
           </div>
         </div>
       </div>
+      <div class="ft__half pdx pdx--noOverflow pdxParent--smartphones pdx--devices-2" style="--pdx-maxheight:1">
+        <div class="pdxItem pdxItem--smartphones"><svg viewBox="0 0 328 655" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" class="pdxPhone">
+            <defs>
+              <path
+                d="M0 45.86C0 20.532 20.532 0 45.86 0h236.28C307.468 0 328 20.532 328 45.86v562.286c0 25.328-20.532 45.86-45.86 45.86H45.86c-25.328 0-45.86-20.532-45.86-45.86V45.86z"
+                id="framePhoneThinDark-a"></path>
+              <filter x="-1.1%" y="-.5%" width="102.1%" height="101.1%" filterUnits="objectBoundingBox"
+                id="framePhoneThinDark-b">
+                <feMorphology radius="2" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+                <feGaussianBlur stdDeviation="2.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                  result="shadowInnerInner1"></feComposite>
+                <feColorMatrix values="0 0 0 0 0.125490196 0 0 0 0 0.129411765 0 0 0 0 0.141176471 0 0 0 0.721727491 0"
+                  in="shadowInnerInner1"></feColorMatrix>
+              </filter>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <g>
+                <use fill="#282C2F" xlink:href="#framePhoneThinDark-a"></use>
+                <use fill="#000" filter="url(#framePhoneThinDark-b)" xlink:href="#framePhoneThinDark-a"></use>
+              </g>
+              <path
+                d="M14 47c0-18.778 15.222-34 34-34h232c18.778 0 34 15.222 34 34v560c0 18.778-15.222 34-34 34H48c-18.778 0-34-15.222-34-34V47z"
+                fill="transparent"></path>
+            </g>
+          </svg>
+          <div class="pdxContent"><img
+              src="https://landen.imgix.net/mhv9lgfzv7qn/assets/qxwapu3d.jpg?w=274&amp;h=574&amp;fit=crop"
+              srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/qxwapu3d.jpg?w=274&amp;h=574&amp;fit=crop,https://landen.imgix.net/mhv9lgfzv7qn/assets/qxwapu3d.jpg?w=274&amp;h=574&amp;fit=crop&amp;dpr=2 2x"
+              alt="Multiple Choice.jpg" /></div>
+          <div class="pdxItem pdxItem--nestedPhone one"><svg viewBox="0 0 328 655" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" class="pdxPhone">
+              <defs>
+                <path
+                  d="M0 45.86C0 20.532 20.532 0 45.86 0h236.28C307.468 0 328 20.532 328 45.86v562.286c0 25.328-20.532 45.86-45.86 45.86H45.86c-25.328 0-45.86-20.532-45.86-45.86V45.86z"
+                  id="framePhoneThinDark-a"></path>
+                <filter x="-1.1%" y="-.5%" width="102.1%" height="101.1%" filterUnits="objectBoundingBox"
+                  id="framePhoneThinDark-b">
+                  <feMorphology radius="2" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+                  <feGaussianBlur stdDeviation="2.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+                  <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+                  <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                    result="shadowInnerInner1"></feComposite>
+                  <feColorMatrix
+                    values="0 0 0 0 0.125490196 0 0 0 0 0.129411765 0 0 0 0 0.141176471 0 0 0 0.721727491 0"
+                    in="shadowInnerInner1"></feColorMatrix>
+                </filter>
+              </defs>
+              <g fill="none" fill-rule="evenodd">
+                <g>
+                  <use fill="#282C2F" xlink:href="#framePhoneThinDark-a"></use>
+                  <use fill="#000" filter="url(#framePhoneThinDark-b)" xlink:href="#framePhoneThinDark-a"></use>
+                </g>
+                <path
+                  d="M14 47c0-18.778 15.222-34 34-34h232c18.778 0 34 15.222 34 34v560c0 18.778-15.222 34-34 34H48c-18.778 0-34-15.222-34-34V47z"
+                  fill="transparent"></path>
+              </g>
+            </svg>
+            <div class="pdxContent"><img
+                src="https://landen.imgix.net/mhv9lgfzv7qn/assets/ms5szexv.jpg?w=274&amp;h=574&amp;fit=crop"
+                srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/ms5szexv.jpg?w=274&amp;h=574&amp;fit=crop,https://landen.imgix.net/mhv9lgfzv7qn/assets/ms5szexv.jpg?w=274&amp;h=574&amp;fit=crop&amp;dpr=2 2x"
+                alt="Record.jpg" /></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="zigzag" class="section section--zigzag section--center dark section--m090r7bowx9"
-    style="background-color:rgba(255, 255, 255, 1.0);padding-bottom:60px;padding-top:60px;--pdx-min-height:0px;--wr-max:1200px;font-size:18px">
+  <div id="titles" class="section section--titles section--center dark"
+    style="background-color:rgba(255, 255, 255, 1.0);padding-bottom:60px;padding-top:60px;--pdx-min-height:0px;--wr-max:1200px">
     <div class="wr">
-      <h2 class="color weight-title-h font-title section__title center standalone">How it works</h2>
-      <div class="zigzag">
-        <div class="zigzagItem zigzagItem--right">
-          <div class="zigzagItem__content">
-            <h3 class="zigzagItem__title color weight-text-m">Tell us about yourself</h3>
-            <div class="zigzagItem__text">
-              <p>Install the app. Add your LinkedIn and areas of expertise</p>
-            </div>
-          </div>
-          <div class="zigzagItem__graphic"><img src="https://landen.imgix.net/mhv9lgfzv7qn/assets/b2dp9cbq.svg"
-              class="media media--image" srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/b2dp9cbq.svg 2x" /></div>
+      <h2 class="color-1 weight-title-h font-title section__title center">How does it work?</h2>
+      <h3 class="weight-text section__subtitle center">Discover the easiest way to get paid for what you already know!
+      </h3>
+    </div>
+  </div>
+  <div id="feature" class="section section--feature section--noPadding section--right dark"
+    style="background-color:#fff;--pdx-min-height:500px;--wr-max:1200px">
+    <div class="ft ft--right" style="--pdx-pt:0;--pdx-pb:0">
+      <div class="ft__half pdx pdx--noOverflow pdxParent--smartphones" style="--pdx-maxheight:1">
+        <div class="pdxItem pdxItem--smartphones"><svg viewBox="0 0 328 655" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" class="pdxPhone">
+            <defs>
+              <path
+                d="M0 45.86C0 20.532 20.532 0 45.86 0h236.28C307.468 0 328 20.532 328 45.86v562.286c0 25.328-20.532 45.86-45.86 45.86H45.86c-25.328 0-45.86-20.532-45.86-45.86V45.86z"
+                id="framePhoneThinDark-a"></path>
+              <filter x="-1.1%" y="-.5%" width="102.1%" height="101.1%" filterUnits="objectBoundingBox"
+                id="framePhoneThinDark-b">
+                <feMorphology radius="2" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+                <feGaussianBlur stdDeviation="2.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                  result="shadowInnerInner1"></feComposite>
+                <feColorMatrix values="0 0 0 0 0.125490196 0 0 0 0 0.129411765 0 0 0 0 0.141176471 0 0 0 0.721727491 0"
+                  in="shadowInnerInner1"></feColorMatrix>
+              </filter>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <g>
+                <use fill="#282C2F" xlink:href="#framePhoneThinDark-a"></use>
+                <use fill="#000" filter="url(#framePhoneThinDark-b)" xlink:href="#framePhoneThinDark-a"></use>
+              </g>
+              <path
+                d="M14 47c0-18.778 15.222-34 34-34h232c18.778 0 34 15.222 34 34v560c0 18.778-15.222 34-34 34H48c-18.778 0-34-15.222-34-34V47z"
+                fill="transparent"></path>
+            </g>
+          </svg>
+          <div class="pdxContent"><img
+              src="https://landen.imgix.net/mhv9lgfzv7qn/assets/pn429247.jpg?w=274&amp;h=574&amp;fit=crop"
+              srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/pn429247.jpg?w=274&amp;h=574&amp;fit=crop,https://landen.imgix.net/mhv9lgfzv7qn/assets/pn429247.jpg?w=274&amp;h=574&amp;fit=crop&amp;dpr=2 2x"
+              alt="Profile.jpg" /></div>
         </div>
-        <div class="zigzagItem zigzagItem--left">
-          <div class="zigzagItem__graphic"><img src="https://landen.imgix.net/mhv9lgfzv7qn/assets/ey3po6d3.svg"
-              class="media media--image" srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/ey3po6d3.svg 2x" /></div>
-          <div class="zigzagItem__content">
-            <h3 class="zigzagItem__title color weight-text-m">Companies send you surveys</h3>
-            <div class="zigzagItem__text">
-              <p>Receive notifications on your phone to fill out a survey that only someone with your expertise could
-                answer</p>
-            </div>
+      </div>
+      <div class="ft__half">
+        <div class="ft__wrapper" style="max-width:570px">
+          <div class="ft__content">
+            <h2 class="color-1 weight-title-h font-title section__title right noMargin">1) Tell us about yourself</h2>
+            <h3 class="weight-text section__subtitle right noMargin">Install the app. Add your LinkedIn and areas of
+              expertise</h3>
           </div>
         </div>
-        <div class="zigzagItem zigzagItem--right">
-          <div class="zigzagItem__content">
-            <h3 class="zigzagItem__title color weight-text-m">Fill one out and get paid</h3>
-            <div class="zigzagItem__text">
-              <p>Answer interesting questions about your industry while waiting in line or on your commute</p>
+      </div>
+    </div>
+  </div>
+  <div id="feature" class="section section--feature section--noPadding section--left dark"
+    style="background-color:#fff;--pdx-min-height:500px;--wr-max:1200px">
+    <div class="ft ft--left" style="--pdx-pt:0;--pdx-pb:0">
+      <div class="ft__half">
+        <div class="ft__wrapper" style="max-width:570px">
+          <div class="ft__content">
+            <h2 class="color-1 weight-title-h font-title section__title left noMargin">2) Companies send you questions
+            </h2>
+            <h3 class="weight-text section__subtitle left noMargin">Receive notifications on your phone to fill out a
+              survey that only you can answer</h3>
+          </div>
+        </div>
+      </div>
+      <div class="ft__half pdx pdx--noOverflow pdxParent--smartphones pdx--devices-2" style="--pdx-maxheight:1">
+        <div class="pdxItem pdxItem--smartphones"><svg viewBox="0 0 328 655" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" class="pdxPhone">
+            <defs>
+              <path
+                d="M0 45.86C0 20.532 20.532 0 45.86 0h236.28C307.468 0 328 20.532 328 45.86v562.286c0 25.328-20.532 45.86-45.86 45.86H45.86c-25.328 0-45.86-20.532-45.86-45.86V45.86z"
+                id="framePhoneThinDark-a"></path>
+              <filter x="-1.1%" y="-.5%" width="102.1%" height="101.1%" filterUnits="objectBoundingBox"
+                id="framePhoneThinDark-b">
+                <feMorphology radius="2" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+                <feGaussianBlur stdDeviation="2.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                  result="shadowInnerInner1"></feComposite>
+                <feColorMatrix values="0 0 0 0 0.125490196 0 0 0 0 0.129411765 0 0 0 0 0.141176471 0 0 0 0.721727491 0"
+                  in="shadowInnerInner1"></feColorMatrix>
+              </filter>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <g>
+                <use fill="#282C2F" xlink:href="#framePhoneThinDark-a"></use>
+                <use fill="#000" filter="url(#framePhoneThinDark-b)" xlink:href="#framePhoneThinDark-a"></use>
+              </g>
+              <path
+                d="M14 47c0-18.778 15.222-34 34-34h232c18.778 0 34 15.222 34 34v560c0 18.778-15.222 34-34 34H48c-18.778 0-34-15.222-34-34V47z"
+                fill="transparent"></path>
+            </g>
+          </svg>
+          <div class="pdxContent"><img
+              src="https://landen.imgix.net/mhv9lgfzv7qn/assets/e4gcwtcc.jpg?w=274&amp;h=574&amp;fit=crop"
+              srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/e4gcwtcc.jpg?w=274&amp;h=574&amp;fit=crop,https://landen.imgix.net/mhv9lgfzv7qn/assets/e4gcwtcc.jpg?w=274&amp;h=574&amp;fit=crop&amp;dpr=2 2x"
+              alt="Upload.jpg" /></div>
+          <div class="pdxItem pdxItem--nestedPhone one"><svg viewBox="0 0 328 655" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" class="pdxPhone">
+              <defs>
+                <path
+                  d="M0 45.86C0 20.532 20.532 0 45.86 0h236.28C307.468 0 328 20.532 328 45.86v562.286c0 25.328-20.532 45.86-45.86 45.86H45.86c-25.328 0-45.86-20.532-45.86-45.86V45.86z"
+                  id="framePhoneThinDark-a"></path>
+                <filter x="-1.1%" y="-.5%" width="102.1%" height="101.1%" filterUnits="objectBoundingBox"
+                  id="framePhoneThinDark-b">
+                  <feMorphology radius="2" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+                  <feGaussianBlur stdDeviation="2.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+                  <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+                  <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                    result="shadowInnerInner1"></feComposite>
+                  <feColorMatrix
+                    values="0 0 0 0 0.125490196 0 0 0 0 0.129411765 0 0 0 0 0.141176471 0 0 0 0.721727491 0"
+                    in="shadowInnerInner1"></feColorMatrix>
+                </filter>
+              </defs>
+              <g fill="none" fill-rule="evenodd">
+                <g>
+                  <use fill="#282C2F" xlink:href="#framePhoneThinDark-a"></use>
+                  <use fill="#000" filter="url(#framePhoneThinDark-b)" xlink:href="#framePhoneThinDark-a"></use>
+                </g>
+                <path
+                  d="M14 47c0-18.778 15.222-34 34-34h232c18.778 0 34 15.222 34 34v560c0 18.778-15.222 34-34 34H48c-18.778 0-34-15.222-34-34V47z"
+                  fill="transparent"></path>
+              </g>
+            </svg>
+            <div class="pdxContent"><img
+                src="https://landen.imgix.net/mhv9lgfzv7qn/assets/h9548r60.jpg?w=274&amp;h=574&amp;fit=crop"
+                srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/h9548r60.jpg?w=274&amp;h=574&amp;fit=crop,https://landen.imgix.net/mhv9lgfzv7qn/assets/h9548r60.jpg?w=274&amp;h=574&amp;fit=crop&amp;dpr=2 2x"
+                alt="Push Notification.jpg" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="feature" class="section section--feature section--noPadding section--right dark"
+    style="background-color:#fff;--pdx-min-height:500px;--wr-max:1200px">
+    <div class="ft ft--right" style="--pdx-pt:0;--pdx-pb:0">
+      <div class="ft__half pdx pdx--noOverflow pdxParent--smartphones" style="--pdx-maxheight:1">
+        <div class="pdxItem pdxItem--smartphones"><svg viewBox="0 0 328 655" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" class="pdxPhone">
+            <defs>
+              <path
+                d="M0 45.86C0 20.532 20.532 0 45.86 0h236.28C307.468 0 328 20.532 328 45.86v562.286c0 25.328-20.532 45.86-45.86 45.86H45.86c-25.328 0-45.86-20.532-45.86-45.86V45.86z"
+                id="framePhoneThinDark-a"></path>
+              <filter x="-1.1%" y="-.5%" width="102.1%" height="101.1%" filterUnits="objectBoundingBox"
+                id="framePhoneThinDark-b">
+                <feMorphology radius="2" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+                <feGaussianBlur stdDeviation="2.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                  result="shadowInnerInner1"></feComposite>
+                <feColorMatrix values="0 0 0 0 0.125490196 0 0 0 0 0.129411765 0 0 0 0 0.141176471 0 0 0 0.721727491 0"
+                  in="shadowInnerInner1"></feColorMatrix>
+              </filter>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <g>
+                <use fill="#282C2F" xlink:href="#framePhoneThinDark-a"></use>
+                <use fill="#000" filter="url(#framePhoneThinDark-b)" xlink:href="#framePhoneThinDark-a"></use>
+              </g>
+              <path
+                d="M14 47c0-18.778 15.222-34 34-34h232c18.778 0 34 15.222 34 34v560c0 18.778-15.222 34-34 34H48c-18.778 0-34-15.222-34-34V47z"
+                fill="transparent"></path>
+            </g>
+          </svg>
+          <div class="pdxContent"><img
+              src="https://landen.imgix.net/mhv9lgfzv7qn/assets/496pr6im.jpg?w=274&amp;h=574&amp;fit=crop"
+              srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/496pr6im.jpg?w=274&amp;h=574&amp;fit=crop,https://landen.imgix.net/mhv9lgfzv7qn/assets/496pr6im.jpg?w=274&amp;h=574&amp;fit=crop&amp;dpr=2 2x"
+              alt="Earned.jpg" /></div>
+        </div>
+      </div>
+      <div class="ft__half">
+        <div class="ft__wrapper" style="max-width:570px">
+          <div class="ft__content">
+            <h2 class="color-1 weight-title-h font-title section__title right noMargin">3) Get paid in your free time
+            </h2>
+            <h3 class="weight-text section__subtitle right noMargin">Answer interesting questions about your industry
+              while waiting in line or on your commute</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="feature" class="section section--feature section--noPadding section--right dark"
+    style="background-color:#fff;--pdx-min-height:500px;--wr-max:1200px">
+    <div class="ft ft--right" style="--pdx-pt:0;--pdx-pb:0">
+      <div class="ft__half pdx pdxParent--img-solid pdx--devices-3" style="--pdx-maxheight:0.97">
+        <div class="pdxItem pdxItem--img-solid" style="border-radius:5px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15)"><img
+            src="https://landen.imgix.net/mhv9lgfzv7qn/assets/19gawlml.png?w=1200&amp;h=900&amp;fit=max"
+            srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/19gawlml.png?w=1200&amp;h=900&amp;fit=max,https://landen.imgix.net/mhv9lgfzv7qn/assets/19gawlml.png?w=1200&amp;h=900&amp;fit=max&amp;dpr=2 2x"
+            alt="undraw_video_call_kxyp.png" /></div>
+      </div>
+      <div class="ft__half">
+        <div class="ft__wrapper" style="max-width:570px">
+          <div class="ft__content">
+            <h2 class="color-1 weight-title-h font-title section__title right noMargin">Earn hundreds per hour to hop on
+              a call</h2>
+            <h3 class="weight-text section__subtitle right noMargin">If companies like your answers and want to learn
+              more, they can reach out for a call</h3>
+            <div class="ftPoint"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <div class="ftPoint__meta">
+                <h3 class="ftPoint__title color-1 weight-text-m">Easy scheduling</h3>
+                <div class="ftPoint__description">
+                  <p>We&#39;ll make it seamless to find time to chat with them</p>
+                </div>
+              </div>
+            </div>
+            <div class="ftPoint"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <div class="ftPoint__meta">
+                <h3 class="ftPoint__title color-1 weight-text-m">Guaranteed payment</h3>
+                <div class="ftPoint__description">
+                  <p>Get paid for the time you speak with them at a fair rate for your expertise</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="zigzagItem__graphic"><img src="https://landen.imgix.net/mhv9lgfzv7qn/assets/7elvlwm7.svg"
-              class="media media--image" srcSet="https://landen.imgix.net/mhv9lgfzv7qn/assets/7elvlwm7.svg 2x" /></div>
         </div>
       </div>
     </div>
@@ -396,11 +659,11 @@
     style="background-color:#fff;padding-bottom:60px;padding-top:60px;--pdx-min-height:0px;--wr-max:1200px">
     <div class="wr">
       <div class="cta__titles">
-        <h2 class="color weight-title-h font-title section__title center">Earn money in your down time</h2>
-        <h3 class="weight-text section__subtitle center">Contact us or sign upThere are 1440 minutes in a day. Spend 5
-          of them on Wisdom to buy yourself dinner and help someone who really needs your expertise now.</h3>
+        <h2 class="color-1 weight-title-h font-title section__title center">Start earning today!</h2>
+        <h3 class="weight-text section__subtitle center">You have 1440 minutes in a day. Spend 5 of them help someone
+          who really needs your expertise now and buy yourself a nice dinner</h3>
       </div>
-      <div class="cta__ctas"></div>
+      <div class="ctas"></div>
     </div>
   </div>
   <footer id="footer" class="section section--footer section--center dark"
