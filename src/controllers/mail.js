@@ -16,7 +16,7 @@ const nodemailerMailgun = nodemailer.createTransport(nodemailermg(auth));
 
 export function sendVerificationEmail(email, host, token) {
     nodemailerMailgun.sendMail({
-        from: 'support@getwisdomapp.com',
+        from: 'wisdom-no-reply@getwisdomapp.com',
         to: email,
         subject: 'Verify your email for Wisdom',
         text: 'Hello,\n\n' +
