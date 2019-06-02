@@ -1,8 +1,9 @@
 import express from 'express';
 import User from '../models/user.js';
-import { sendVerificationEmail } from '../controllers/mail.js';
+import { addToMailchimp, sendVerificationEmail } from '../controllers/mail.js';
 import { body, param, validationResult } from 'express-validator/check';
 import crypto from 'crypto';
+
 var router = express.Router();
 
 const BIAS = 231;
@@ -65,6 +66,9 @@ router.post('/joinwaitlist', [
             'position': position
           });
         });
+
+        // Add to Mailchimp list
+        addToMailchimp(req.body.email);
 
         // Send verification email
         sendVerificationEmail(req.body.email, req.headers.host, newUser.verificationToken)
