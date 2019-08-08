@@ -31,7 +31,7 @@ class EmailVerified extends Component {
     componentWillMount() {
         const path = window.location.pathname;
 
-        axios.post('/api' + path).then(response => {
+        axios.post('/wisdomapi' + path).then(response => {
             if (response.data.type === "already-verified") {
                 this.setState({ message: "Your email, " + response.data.email + ", is already verified" });
             } else {

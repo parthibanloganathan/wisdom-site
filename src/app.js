@@ -22,15 +22,43 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 
-app.use('/api/', indexRouter);
+app.use('/wisdomapi', indexRouter);
 
 if (process.env.NODE_ENV === "development") {
-  app.use(express.static(path.join(__dirname, '/../public')));
-
-  app.use("/", (req, res) => {
+  app.get("/", (req, res) => {
     res.status(200).sendFile(path.resolve(__dirname, "../public", "home.html"));
   });
+
+  app.get("/business", (req, res) => {
+    res.status(200).sendFile(path.resolve(__dirname, "../public", "business.html"));
+  });
+
+  app.get("/privacy", (req, res) => {
+    res.status(200).sendFile(path.resolve(__dirname, "../public", "privacy.html"));
+  });
+
+  app.get("/tos", (req, res) => {
+    res.status(200).sendFile(path.resolve(__dirname, "../public", "tos.html"));
+  });
+
+  app.use(express.static(path.join(__dirname, '/../public')));
 } else {
+  app.get("/", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, "/../client/build/home.html"));
+  });
+
+  app.get("/business", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, "/../client/build/business.html"));
+  });
+
+  app.get("/privacy", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, "/../client/build/privacy.html"));
+  });
+
+  app.get("/tos", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, "/../client/build/tos.html"));
+  });
+
   app.get("/", (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "/../client/build/home.html"));
   });

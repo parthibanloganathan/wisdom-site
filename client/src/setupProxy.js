@@ -12,6 +12,9 @@ var landingPageFilter = function (pathname, req) {
 const serverUrl = 'http://localhost:3001/';
 
 module.exports = function (app) {
-    app.use(proxy('/api', { target: serverUrl }));
+    app.use(proxy('/wisdomapi', { target: serverUrl }));
+    app.use(proxy('/tos', { target: serverUrl }));
+    app.use(proxy('/privacy', { target: serverUrl }));
+    app.use(proxy('/business', { target: serverUrl }));
     app.use(proxy(landingPageFilter, { target: serverUrl }));
 };

@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import JoinedWaitlist from './JoinedWaitlist';
 import EmailVerified from './EmailVerified';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import BusinessInquiry from './BusinessInquiry';
 
 const theme = createMuiTheme({
   palette: {
@@ -22,7 +23,8 @@ class Root extends Component {
         <BrowserRouter>
           <div>
             <Route path="/waitlist" exact component={JoinedWaitlist} />
-            <Route path="/verify" component={EmailVerified} />
+            <Route path="/verify" exact component={EmailVerified} />
+            <Route path="/inquiry" exact component={BusinessInquiry} />
           </div>
         </BrowserRouter>
       </MuiThemeProvider>

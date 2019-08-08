@@ -88,7 +88,7 @@ class JoinedWaitlist extends Component {
             return;
         }
 
-        axios.post('/api/joinwaitlist', {
+        axios.post('/wisdomapi/joinwaitlist', {
             'email': values.email,
             'referralSource': values.ref
         }).then(response => {
