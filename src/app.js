@@ -59,10 +59,6 @@ if (process.env.NODE_ENV === "development") {
     res.status(200).sendFile(path.join(__dirname, "/../client/build/tos.html"));
   });
 
-  app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "/../client/build/home.html"));
-  });
-
   app.use(express.static(path.join(__dirname, '/../client/build')));
 
   app.get('*', (req, res) => {
