@@ -41,28 +41,28 @@ if (process.env.NODE_ENV === "development") {
     res.status(200).sendFile(path.resolve(__dirname, "../public", "tos.html"));
   });
 
-  app.use(express.static(path.join(__dirname, '/../public')));
+  app.use(express.static(path.join(__dirname, '../public')));
 } else {
   app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "/../client/build/home.html"));
+    res.status(200).sendFile(path.join(__dirname, "../client/build/home.html"));
   });
 
   app.get("/business", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "/../client/build/business.html"));
+    res.status(200).sendFile(path.join(__dirname, "../client/build/business.html"));
   });
 
   app.get("/privacy", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "/../client/build/privacy.html"));
+    res.status(200).sendFile(path.join(__dirname, "../client/build/privacy.html"));
   });
 
   app.get("/tos", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "/../client/build/tos.html"));
+    res.status(200).sendFile(path.join(__dirname, "../client/build/tos.html"));
   });
 
-  app.use(express.static(path.join(__dirname, '/../client/build')));
+  app.use(express.static(path.join(__dirname, '../client/build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
 }
 
